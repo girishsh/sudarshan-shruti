@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', 'Playfair Display', serif;
+  background-color: #f5f1e8;
+}
+
+.invitation-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f5f1e8 0%, #f0e8d8 100%);
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Left Section */
+.left-section {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.om-symbol {
+  font-size: 48px;
+  color: #8B4789;
+  margin-bottom: 10px;
+}
+
+.ganesha-text {
+  font-size: 14px;
+  color: #8B4789;
+  margin-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.ganesha-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: #8B4789;
+}
+
+.month-year {
+  font-size: 24px;
+  color: #5a4a5a;
+  margin-bottom: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.calendar-header span {
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+}
+
+.calendar-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+.date {
+  font-size: 12px;
+  color: #5a4a5a;
+  padding: 6px 4px;
+  border-radius: 4px;
+}
+
+.date.highlight {
+  background-color: #d4567a;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+/* Center Section */
+.center-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.blessing-line {
+  font-size: 16px;
+  color: #8B4789;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.ancestor-names {
+  margin-bottom: 25px;
+}
+
+.ancestor {
+  font-size: 14px;
+  color: #8B4789;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.invitation-text {
+  margin-bottom: 25px;
+  line-height: 1.8;
+}
+
+.invitation-text p {
+  font-size: 15px;
+  color: #5a4a5a;
+  margin: 5px 0;
+}
+
+.couple-names {
+  margin: 30px 0;
+}
+
+.groom {
+  font-size: 48px;
+  color: #8B4789;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.with {
+  font-size: 14px;
+  color: #8B4789;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.bride {
+  font-size: 48px;
+  color: #8B4789;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.parents-line {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.event-details {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.date-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  border: 2px solid #d4a574;
+  padding: 15px 20px;
+  border-radius: 8px;
+}
+
+.day {
+  font-size: 12px;
+  color: #5a4a5a;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.date-number {
+  font-size: 36px;
+  color: #d4567a;
+  font-weight: bold;
+}
+
+.month {
+  font-size: 12px;
+  color: #5a4a5a;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.time {
+  font-size: 14px;
+  color: #5a4a5a;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.venue-section {
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(212, 86, 122, 0.05);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.venue-section h2 {
+  font-size: 20px;
+  color: #8B4789;
+  margin-bottom: 15px;
+}
+
+.venue-address {
+  margin-bottom: 15px;
+}
+
+.venue-address p {
+  font-size: 14px;
+  color: #5a4a5a;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.map-button {
+  background: linear-gradient(135deg, #8B4789 0%, #d4567a 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.map-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(139, 71, 137, 0.3);
+}
+
+.map-button:active {
+  transform: translateY(0);
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #8B4789;
+  font-style: italic;
+}
+
+.footer-text p {
+  margin: 5px 0;
+}
+
+/* Right Section */
+.right-section {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.quote-box {
+  text-align: center;
+}
+
+.quote-highlight {
+  font-size: 14px;
+  color: #5a4a5a;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.quote-text {
+  font-size: 36px;
+  color: #5a4a5a;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin: 8px 0;
+  font-style: italic;
+}
+
+.quote-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #d4a574, transparent);
+  margin: 20px 0;
+}
+
+.quote-message {
+  font-size: 12px;
+  color: #5a4a5a;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.floral-accent {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 32px;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .invitation-container {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    flex: none;
+    width: 100%;
+  }
+
+  .center-section {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .invitation-container {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .center-section {
+    padding: 25px;
+  }
+
+  .couple-names h1 {
+    font-size: 36px;
+  }
+
+  .date-box {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .quote-text {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-container {
+    padding: 10px;
+  }
+
+  .center-section {
+    padding: 15px;
+  }
+
+  .blessing-line {
+    font-size: 14px;
+  }
+
+  .couple-names h1 {
+    font-size: 28px;
+  }
+
+  .groom,
+  .bride {
+    margin: 10px 0;
+  }
+
+  .quote-text {
+    font-size: 22px;
+  }
+
+  .left-section,
+  .right-section {
+    padding: 15px 10px;
+  }
+}
