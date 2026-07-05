@@ -21,7 +21,7 @@ export default function App() {
 
   const handleLocationClick = () => {
     window.open(
-      'https://www.google.com/maps/search/Shri+Ishwar+Temple+Kalyan+Mantapa+Gandhi+Nagar+Dharwad',
+      'https://maps.app.goo.gl/FwSGZPkv8LTSofo28?g_st=ac',
       '_blank'
     )
   }
@@ -116,29 +116,6 @@ export default function App() {
             {/* Footer Message */}
             <div className="footer-message">
               <p>We request your presence and blessings</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Photo Gallery Section */}
-        <div className="photo-gallery-section">
-          <div className="gallery-header-text">
-            <h2>Our Love Story</h2>
-            <p>Moments filled with joy and love</p>
-          </div>
-
-          <div className="photo-gallery">
-            <div className="photo-item photo-1">
-              <div className="photo-placeholder">
-                <span className="photo-icon">📸</span>
-                <p>Pre-Wedding Shoot</p>
-              </div>
-            </div>
-            <div className="photo-item photo-2">
-              <div className="photo-placeholder">
-                <span className="photo-icon">💑</span>
-                <p>Together</p>
-              </div>
             </div>
           </div>
         </div>
