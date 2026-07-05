@@ -5,17 +5,41 @@ export default function App() {
   const [isMuted, setIsMuted] = useState(false)
 
   useEffect(() => {
-    // Try to autoplay music
-    const audio = document.getElementById('background-music')
-    if (audio) {
-      audio.volume = 0.3 // Set volume to 30%
-      const playPromise = audio.play()
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.log('Autoplay prevented. User must interact first.')
-          setIsMuted(true)
-        })
+    // Add user interaction listener to trigger autoplay
+    const playAudio = () => {
+      const audio = document.getElementById('background-music')
+      if (audio) {
+        audio.volume = 0.3 // Set volume to 30%
+        audio.muted = false // Ensure it's not muted
+        
+        const playPromise = audio.play()
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log('Audio playing successfully')
+              setIsMuted(false)
+            })
+            .catch(error => {
+              console.log('Autoplay failed, trying again on user interaction')
+              // Try again on next user interaction
+            })
+        }
       }
+    }
+
+    // Try to play immediately
+    playAudio()
+
+    // Also add event listeners for user interactions
+    const events = ['click', 'touchstart', 'keydown']
+    events.forEach(event => {
+      document.addEventListener(event, playAudio, { once: true })
+    })
+
+    return () => {
+      events.forEach(event => {
+        document.removeEventListener(event, playAudio)
+      })
     }
   }, [])
 
@@ -30,9 +54,11 @@ export default function App() {
     const audio = document.getElementById('background-music')
     if (audio) {
       if (isMuted) {
+        audio.muted = false
         audio.play()
         setIsMuted(false)
       } else {
+        audio.muted = true
         audio.pause()
         setIsMuted(true)
       }
@@ -41,8 +67,13 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Background Music */}
-      <audio id="background-music" loop>
+      {/* Background Music - with autoplay, muted removed to allow playing */}
+      <audio 
+        id="background-music" 
+        loop 
+        preload="auto"
+        playsInline
+      >
         <source src="/src/mast_magan_musical.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
