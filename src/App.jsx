@@ -1,5 +1,6 @@
 import './App.css'
 import { useState, useEffect } from 'react'
+import backgroundMusic from './mast_magan_musical.mp3'
 
 export default function App() {
   const [isMuted, setIsMuted] = useState(false)
@@ -74,7 +75,7 @@ export default function App() {
         preload="auto"
         playsInline
       >
-        <source src="/src/mast_magan_musical.mp3" type="audio/mpeg" />
+        <source src={backgroundMusic} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
 
