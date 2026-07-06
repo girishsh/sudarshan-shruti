@@ -2,8 +2,45 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import backgroundMusic from './mast_magan_musical.mp3'
 
+// Falling Flower Component
+function FallingFlower({ id }) {
+  const flowerEmojis = ['🌸', '🌺', '🌼', '🌻', '💐']
+  const randomFlower = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)]
+  const randomLeft = Math.random() * 100
+  const randomDelay = Math.random() * 2
+  const randomDuration = 6 + Math.random() * 4 // 6-10 seconds
+  const randomSize = 20 + Math.random() * 20 // 20-40px
+
+  return (
+    <div
+      className="falling-flower"
+      style={{
+        left: `${randomLeft}%`,
+        '--animation-duration': `${randomDuration}s`,
+        '--animation-delay': `${randomDelay}s`,
+        fontSize: `${randomSize}px`,
+      }}
+    >
+      {randomFlower}
+    </div>
+  )
+}
+
 export default function App() {
   const [isMuted, setIsMuted] = useState(false)
+  const [flowers, setFlowers] = useState([])
+
+  useEffect(() => {
+    // Create initial flowers
+    setFlowers(Array.from({ length: 20 }, (_, i) => i))
+
+    // Add new flowers continuously
+    const flowerInterval = setInterval(() => {
+      setFlowers(prev => [...prev, Math.random()])
+    }, 800) // Add a new flower every 800ms
+
+    return () => clearInterval(flowerInterval)
+  }, [])
 
   useEffect(() => {
     // Add user interaction listener to trigger autoplay
@@ -66,9 +103,6 @@ export default function App() {
     }
   }
 
-  // Flower colors for falling animation
-  const flowerColors = ['🌸', '🌺', '🌼', '🌻', '💐']
-
   return (
     <div className="app-container">
       {/* Background Music - with autoplay, muted removed to allow playing */}
@@ -87,19 +121,9 @@ export default function App() {
         {isMuted ? '🔇' : '🔊'}
       </button>
 
-      {/* Falling Flowers Animation */}
-      {[...Array(15)].map((_, i) => (
-        <div 
-          key={i} 
-          className="falling-flower" 
-          style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            fontSize: `${Math.random() * 20 + 20}px`
-          }}
-        >
-          {flowerColors[Math.floor(Math.random() * flowerColors.length)]}
-        </div>
+      {/* Falling Flowers */}
+      {flowers.map((flower, index) => (
+        <FallingFlower key={`${flower}-${index}`} id={index} />
       ))}
 
       {/* Main Invitation Card */}
