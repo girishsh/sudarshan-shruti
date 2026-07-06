@@ -71,16 +71,16 @@ body {
 
 /* Countdown Timer Styles */
 .countdown-container {
-  margin: 40px 0;
+  margin: 30px 0;
   animation: fadeIn 0.8s ease-out 0.65s both;
 }
 
 .countdown-title {
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 2px;
   color: #c36991;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
 }
@@ -89,11 +89,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding: 25px;
+  gap: 6px;
+  flex-wrap: nowrap;
+  padding: 18px 15px;
   background: linear-gradient(135deg, rgba(195, 105, 145, 0.08) 0%, rgba(195, 105, 145, 0.04) 100%);
-  border-radius: 15px;
+  border-radius: 12px;
   border: 2px solid rgba(195, 105, 145, 0.15);
   box-shadow: 0 8px 32px rgba(195, 105, 145, 0.1),
               inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -106,9 +106,9 @@ body {
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, rgba(255, 250, 245, 0.9) 0%, rgba(255, 245, 237, 0.9) 100%);
-  padding: 15px 16px;
-  border-radius: 10px;
-  min-width: 65px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  min-width: 50px;
   box-shadow: 0 8px 24px rgba(195, 105, 145, 0.15),
               inset 0 1px 0 rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(195, 105, 145, 0.1);
@@ -134,12 +134,12 @@ body {
 }
 
 .countdown-value {
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 800;
   color: #c36991;
   line-height: 1;
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   animation: numberPulse 1s ease-in-out;
 }
 
@@ -156,21 +156,21 @@ body {
 }
 
 .countdown-label {
-  font-size: 11px;
-  letter-spacing: 1px;
+  font-size: 9px;
+  letter-spacing: 0.5px;
   color: #7a5a7a;
   font-weight: 600;
-  margin-top: 6px;
+  margin-top: 4px;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
 }
 
 .countdown-separator {
-  font-size: 24px;
+  font-size: 18px;
   color: #c36991;
   font-weight: 700;
   opacity: 0.6;
-  margin: 0 -4px;
+  margin: 0 -2px;
   animation: blink 1s step-start infinite;
 }
 
@@ -586,21 +586,26 @@ body {
   }
 
   .countdown-timer {
-    gap: 6px;
-    padding: 20px;
+    gap: 4px;
+    padding: 15px 10px;
   }
 
   .countdown-box {
-    min-width: 60px;
-    padding: 12px 14px;
+    min-width: 45px;
+    padding: 8px 10px;
   }
 
   .countdown-value {
-    font-size: 28px;
+    font-size: 20px;
+  }
+
+  .countdown-label {
+    font-size: 8px;
   }
 
   .countdown-separator {
-    font-size: 18px;
+    font-size: 16px;
+    margin: 0 -1px;
   }
 
   .elephants-decoration {
@@ -654,26 +659,33 @@ body {
   }
 
   .countdown-timer {
-    gap: 4px;
-    padding: 15px;
-    flex-direction: column;
+    gap: 3px;
+    padding: 12px 8px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-title {
+    font-size: 11px;
+    margin-bottom: 10px;
   }
 
   .countdown-box {
-    min-width: 55px;
-    padding: 10px 12px;
+    min-width: 42px;
+    padding: 7px 8px;
   }
 
   .countdown-value {
-    font-size: 24px;
-  }
-
-  .countdown-separator {
-    display: none;
+    font-size: 18px;
   }
 
   .countdown-label {
-    font-size: 10px;
+    font-size: 7px;
+    margin-top: 2px;
+  }
+
+  .countdown-separator {
+    font-size: 14px;
+    margin: 0 0px;
   }
 
   .venue-name {
@@ -733,6 +745,15 @@ body {
   }
 
   .countdown-value {
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  .countdown-box {
+    min-width: 38px;
+    padding: 6px 6px;
+  }
+
+  .countdown-separator {
+    font-size: 12px;
   }
 }
