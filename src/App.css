@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: 'Montserrat', 'Cormorant Garamond', serif;
-  background: linear-gradient(135deg, rgba(195, 105, 145, 0.4) 0%, rgba(195, 105, 145, 0.25) 100%),
+  background: linear-gradient(135deg, rgba(195, 105, 145, 0.15) 0%, rgba(195, 105, 145, 0.1) 100%),
               url('https://github.com/girishsh/sudarshan-shruti/raw/main/src/IMG-20260705-WA0036.jpg') center/cover fixed;
   background-attachment: fixed;
   min-height: 100vh;
@@ -57,9 +57,9 @@ body {
 .falling-flower {
   position: fixed;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.9;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  z-index: 50;
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   animation: fall var(--animation-duration, 8s) linear var(--animation-delay, 0s) infinite;
 }
 
