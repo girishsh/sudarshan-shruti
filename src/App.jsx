@@ -7,9 +7,9 @@ function FallingFlower({ id }) {
   const flowerEmojis = ['🌸', '🌺', '🌼', '🌻', '💐']
   const randomFlower = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)]
   const randomLeft = Math.random() * 100
-  const randomDelay = Math.random() * 2
-  const randomDuration = 6 + Math.random() * 4 // 6-10 seconds
-  const randomSize = 20 + Math.random() * 20 // 20-40px
+  const randomDelay = Math.random() * 3
+  const randomDuration = 12 + Math.random() * 6 // 12-18 seconds for slower, smoother fall
+  const randomSize = 24 + Math.random() * 16 // 24-40px
 
   return (
     <div
@@ -26,18 +26,77 @@ function FallingFlower({ id }) {
   )
 }
 
+// Countdown Timer Component
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  })
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      // July 9, 2026, 12:28 PM IST
+      const targetDate = new Date('2026-07-09T12:28:00+05:30').getTime()
+      const now = new Date().getTime()
+      const difference = targetDate - now
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60)
+        })
+      }
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className="countdown-container">
+      <div className="countdown-title">COUNTDOWN TO OUR WEDDING</div>
+      <div className="countdown-timer">
+        <div className="countdown-box">
+          <div className="countdown-value">{String(timeLeft.days).padStart(2, '0')}</div>
+          <div className="countdown-label">DAYS</div>
+        </div>
+        <div className="countdown-separator">:</div>
+        <div className="countdown-box">
+          <div className="countdown-value">{String(timeLeft.hours).padStart(2, '0')}</div>
+          <div className="countdown-label">HOURS</div>
+        </div>
+        <div className="countdown-separator">:</div>
+        <div className="countdown-box">
+          <div className="countdown-value">{String(timeLeft.minutes).padStart(2, '0')}</div>
+          <div className="countdown-label">MINUTES</div>
+        </div>
+        <div className="countdown-separator">:</div>
+        <div className="countdown-box">
+          <div className="countdown-value">{String(timeLeft.seconds).padStart(2, '0')}</div>
+          <div className="countdown-label">SECONDS</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function App() {
   const [isMuted, setIsMuted] = useState(false)
   const [flowers, setFlowers] = useState([])
 
   useEffect(() => {
-    // Create initial flowers
-    setFlowers(Array.from({ length: 20 }, (_, i) => i))
+    // Create initial flowers - reduced from 20 to 8
+    setFlowers(Array.from({ length: 8 }, (_, i) => i))
 
-    // Add new flowers continuously
+    // Add new flowers continuously - increased interval for fewer flowers
     const flowerInterval = setInterval(() => {
       setFlowers(prev => [...prev, Math.random()])
-    }, 800) // Add a new flower every 800ms
+    }, 2000) // Add a new flower every 2 seconds (was 800ms)
 
     return () => clearInterval(flowerInterval)
   }, [])
@@ -165,8 +224,11 @@ export default function App() {
             <div className="wedding-details">
               <p className="on-text">ON</p>
               <p className="date">THURSDAY, 09 JULY 2026</p>
-              <p className="time">AT 12:28 PM</p>
+              <p className="time">AT 12:28 PM IST</p>
             </div>
+
+            {/* Countdown Timer */}
+            <CountdownTimer />
 
             {/* Venue Details */}
             <div className="venue-details">
