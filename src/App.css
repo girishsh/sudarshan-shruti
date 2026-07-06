@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +11,10 @@ html {
 }
 
 body {
-  font-family: 'Georgia', 'Playfair Display', 'Cormorant Garamond', serif;
-  background: linear-gradient(135deg, rgba(195, 105, 145, 0.3) 0%, rgba(195, 105, 145, 0.2) 100%),
+  font-family: 'Montserrat', 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, rgba(195, 105, 145, 0.4) 0%, rgba(195, 105, 145, 0.25) 100%),
               url('https://github.com/girishsh/sudarshan-shruti/raw/main/src/IMG-20260705-WA0036.jpg') center/cover fixed;
+  background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -25,6 +28,39 @@ body {
   padding: 20px;
   gap: 20px;
   position: relative;
+}
+
+/* Falling Flowers Animation */
+@keyframes fall {
+  0% {
+    top: -50px;
+    opacity: 1;
+    transform: translateX(0) rotateZ(0deg);
+  }
+  25% {
+    transform: translateX(100px) rotateZ(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50px) rotateZ(180deg);
+  }
+  75% {
+    transform: translateX(75px) rotateZ(270deg);
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+    transform: translateX(0) rotateZ(360deg);
+  }
+}
+
+.falling-flower {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  animation: fall var(--animation-duration, 8s) linear var(--animation-delay, 0s) infinite;
 }
 
 /* Music Toggle Button */
@@ -64,6 +100,8 @@ body {
   flex-direction: column;
   gap: 30px;
   animation: fadeIn 0.8s ease-out;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes fadeIn {
@@ -77,12 +115,12 @@ body {
 
 /* Invitation Card */
 .invitation-card {
-  background: linear-gradient(to bottom, rgba(255, 250, 245, 0.95) 0%, rgba(255, 245, 237, 0.95) 100%);
+  background: linear-gradient(to bottom, rgba(255, 250, 245, 0.97) 0%, rgba(255, 245, 237, 0.97) 100%);
   border: 2px solid #e8d5c4;
   border-radius: 20px;
   padding: 60px 40px;
-  box-shadow: 0 20px 60px rgba(195, 105, 145, 0.15),
-              0 0 40px rgba(195, 105, 145, 0.05);
+  box-shadow: 0 20px 60px rgba(195, 105, 145, 0.2),
+              0 0 40px rgba(195, 105, 145, 0.08);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -95,7 +133,7 @@ body {
   width: 100%;
   height: 50px;
   background-repeat: repeat-x;
-  opacity: 0.1;
+  opacity: 0.08;
 }
 
 .pattern-top {
@@ -184,12 +222,13 @@ body {
 }
 
 .you-are-invited {
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: #5a4a5a;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #7a5a7a;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.8;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Couple Section */
@@ -211,13 +250,14 @@ body {
 
 .groom-name,
 .bride-name {
-  font-size: 56px;
-  font-weight: 400;
-  letter-spacing: 3px;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 4px;
   color: #c36991;
   margin: 10px 0;
-  text-shadow: 0 2px 4px rgba(195, 105, 145, 0.1);
+  text-shadow: 0 3px 6px rgba(195, 105, 145, 0.12);
   line-height: 1.2;
+  font-family: 'Playfair Display', serif;
 }
 
 .ampersand {
@@ -226,6 +266,8 @@ body {
   margin: 15px 0;
   opacity: 0.8;
   font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 
 /* Decorative Flourish */
@@ -268,58 +310,68 @@ body {
 }
 
 .on-text {
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: #5a4a5a;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #7a5a7a;
   margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .date {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 600;
   letter-spacing: 2px;
   color: #c36991;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
 }
 
 .time {
   font-size: 14px;
-  letter-spacing: 1px;
-  color: #5a4a5a;
+  letter-spacing: 2px;
+  color: #7a5a7a;
   margin-top: 10px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Venue Details */
 .venue-details {
   margin: 35px 0;
   padding: 25px;
-  background: rgba(195, 105, 145, 0.05);
+  background: rgba(195, 105, 145, 0.06);
   border-radius: 15px;
+  border: 1px solid rgba(195, 105, 145, 0.1);
   animation: fadeIn 0.8s ease-out 0.6s both;
 }
 
 .venue-label {
   font-size: 12px;
   letter-spacing: 2px;
-  color: #5a4a5a;
-  font-weight: 600;
+  color: #7a5a7a;
+  font-weight: 700;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .venue-name {
-  font-size: 18px;
+  font-size: 19px;
   color: #c36991;
   font-weight: 600;
   margin-bottom: 5px;
   letter-spacing: 0.5px;
+  font-family: 'Playfair Display', serif;
 }
 
 .venue-location {
   font-size: 14px;
-  color: #5a4a5a;
+  color: #7a5a7a;
   letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Map Button */
@@ -331,19 +383,19 @@ body {
   border: none;
   border-radius: 50px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Georgia', serif;
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  box-shadow: 0 10px 25px rgba(195, 105, 145, 0.2);
+  box-shadow: 0 10px 25px rgba(195, 105, 145, 0.25);
   animation: fadeIn 0.8s ease-out 0.7s both;
 }
 
 .map-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(195, 105, 145, 0.3);
+  box-shadow: 0 15px 35px rgba(195, 105, 145, 0.35);
 }
 
 .map-button:active {
@@ -360,11 +412,13 @@ body {
 }
 
 .blessing-text {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 1px;
-  color: #5a4a5a;
+  color: #7a5a7a;
   font-style: italic;
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
 .parents-names {
@@ -372,7 +426,8 @@ body {
   color: #c36991;
   letter-spacing: 0.5px;
   line-height: 1.8;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Footer Message */
@@ -382,38 +437,12 @@ body {
 }
 
 .footer-message p {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 1px;
-  color: #5a4a5a;
+  color: #7a5a7a;
   font-style: italic;
-}
-
-/* Floating Decorations */
-.floating-decoration {
-  position: fixed;
-  font-size: 30px;
-  opacity: 0.1;
-  pointer-events: none;
-  animation: float 6s ease-in-out infinite;
-  z-index: 0;
-}
-
-.floating-1 {
-  top: 10%;
-  left: 5%;
-  animation-delay: 0s;
-}
-
-.floating-2 {
-  top: 50%;
-  right: 5%;
-  animation-delay: 1s;
-}
-
-.floating-3 {
-  bottom: 10%;
-  left: 10%;
-  animation-delay: 2s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 }
 
 /* Responsive Design */
@@ -424,7 +453,7 @@ body {
 
   .groom-name,
   .bride-name {
-    font-size: 40px;
+    font-size: 44px;
     letter-spacing: 2px;
   }
 
@@ -433,7 +462,7 @@ body {
   }
 
   .date {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .elephants-decoration {
@@ -466,7 +495,7 @@ body {
 
   .groom-name,
   .bride-name {
-    font-size: 28px;
+    font-size: 32px;
     letter-spacing: 1px;
   }
 
@@ -475,11 +504,11 @@ body {
   }
 
   .you-are-invited {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .date {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .time {
@@ -535,10 +564,10 @@ body {
 @media (max-width: 360px) {
   .groom-name,
   .bride-name {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .date {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
