@@ -66,6 +66,9 @@ export default function App() {
     }
   }
 
+  // Flower colors for falling animation
+  const flowerColors = ['🌸', '🌺', '🌼', '🌻', '💐']
+
   return (
     <div className="app-container">
       {/* Background Music - with autoplay, muted removed to allow playing */}
@@ -83,6 +86,21 @@ export default function App() {
       <button className="music-toggle" onClick={toggleMute} title={isMuted ? 'Unmute' : 'Mute'}>
         {isMuted ? '🔇' : '🔊'}
       </button>
+
+      {/* Falling Flowers Animation */}
+      {[...Array(15)].map((_, i) => (
+        <div 
+          key={i} 
+          className="falling-flower" 
+          style={{
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 5}s`,
+            fontSize: `${Math.random() * 20 + 20}px`
+          }}
+        >
+          {flowerColors[Math.floor(Math.random() * flowerColors.length)]}
+        </div>
+      ))}
 
       {/* Main Invitation Card */}
       <div className="invitation-wrapper">
@@ -140,7 +158,7 @@ export default function App() {
 
             {/* Blessing Line */}
             <div className="blessing-section">
-              <p className="blessing-text">With the blessing of our ancestors</p>
+              <p className="blessing-text">With the blessing of our parents</p>
               <p className="parents-names">Late Shri Chandravijay Shridhar Kalebere</p>
               <p className="parents-names">Smt. Mandakini Chandravijay Kalebere</p>
             </div>
@@ -152,11 +170,6 @@ export default function App() {
           </div>
         </div>
       </div>
-
-      {/* Floating Decorative Elements */}
-      <div className="floating-decoration floating-1">✿</div>
-      <div className="floating-decoration floating-2">✿</div>
-      <div className="floating-decoration floating-3">✿</div>
     </div>
   )
 }
