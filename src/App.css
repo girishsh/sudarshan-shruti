@@ -41,14 +41,14 @@ body {
     opacity: 1;
   }
   25% {
-    transform: translateX(80px) rotateZ(90deg);
+    transform: translateX(100px) rotateZ(90deg);
   }
   50% {
     opacity: 1;
-    transform: translateX(-40px) rotateZ(180deg);
+    transform: translateX(-50px) rotateZ(180deg);
   }
   75% {
-    transform: translateX(50px) rotateZ(270deg);
+    transform: translateX(75px) rotateZ(270deg);
   }
   95% {
     opacity: 1;
@@ -67,6 +67,120 @@ body {
   opacity: 0;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
   animation: fall var(--animation-duration, 15s) ease-in-out var(--animation-delay, 0s) 1;
+}
+
+/* Countdown Timer Styles */
+.countdown-container {
+  margin: 40px 0;
+  animation: fadeIn 0.8s ease-out 0.65s both;
+}
+
+.countdown-title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #c36991;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(195, 105, 145, 0.08) 0%, rgba(195, 105, 145, 0.04) 100%);
+  border-radius: 15px;
+  border: 2px solid rgba(195, 105, 145, 0.15);
+  box-shadow: 0 8px 32px rgba(195, 105, 145, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 250, 245, 0.9) 0%, rgba(255, 245, 237, 0.9) 100%);
+  padding: 15px 16px;
+  border-radius: 10px;
+  min-width: 65px;
+  box-shadow: 0 8px 24px rgba(195, 105, 145, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(195, 105, 145, 0.1);
+  animation: pulse-glow 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.countdown-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(195, 105, 145, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(195, 105, 145, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 12px 36px rgba(195, 105, 145, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+.countdown-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: #c36991;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  animation: numberPulse 1s ease-in-out;
+}
+
+@keyframes numberPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.countdown-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #7a5a7a;
+  font-weight: 600;
+  margin-top: 6px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.countdown-separator {
+  font-size: 24px;
+  color: #c36991;
+  font-weight: 700;
+  opacity: 0.6;
+  margin: 0 -4px;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 0.8;
+  }
+  51%, 100% {
+    opacity: 0.3;
+  }
 }
 
 /* Music Toggle Button */
@@ -471,6 +585,24 @@ body {
     font-size: 32px;
   }
 
+  .countdown-timer {
+    gap: 6px;
+    padding: 20px;
+  }
+
+  .countdown-box {
+    min-width: 60px;
+    padding: 12px 14px;
+  }
+
+  .countdown-value {
+    font-size: 28px;
+  }
+
+  .countdown-separator {
+    font-size: 18px;
+  }
+
   .elephants-decoration {
     gap: 15px;
     margin-bottom: 20px;
@@ -519,6 +651,29 @@ body {
 
   .time {
     font-size: 12px;
+  }
+
+  .countdown-timer {
+    gap: 4px;
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  .countdown-box {
+    min-width: 55px;
+    padding: 10px 12px;
+  }
+
+  .countdown-value {
+    font-size: 24px;
+  }
+
+  .countdown-separator {
+    display: none;
+  }
+
+  .countdown-label {
+    font-size: 10px;
   }
 
   .venue-name {
@@ -574,6 +729,10 @@ body {
   }
 
   .date {
+    font-size: 20px;
+  }
+
+  .countdown-value {
     font-size: 20px;
   }
 }
